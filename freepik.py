@@ -25,7 +25,7 @@ def get_cached_cookie():
     client = Redis.from_url(redis_url, decode_responses=True)
     value = client.get("cookie")
     if not value:
-        return None
+        return None, None
     dict_value = json.loads(value)
     return dict_value["cookie"], dict_value["expires"]
 
